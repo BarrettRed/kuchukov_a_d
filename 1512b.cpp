@@ -1,7 +1,7 @@
 #include <iostream>
-
+ 
 #include <string>
-
+ 
 int main() {
   int t;
   int n;
@@ -24,28 +24,14 @@ int main() {
         }
       }
     }
-    if (n == 2) {
-      std::cout << "**" << std::endl;
-      std::cout << "**" << std::endl;
-      continue;
-    }
+ 
     if (i1 == i2) {
-      while (true) {
-        i3++;
-        if (i3 != i1) {
-          break;
-        }
-      }
+      i3 = std::abs(i1 - 1);
       i4 = i3;
       j3 = j1;
       j4 = j2;
     } else if (j1 == j2) {
-      while (true) {
-        j3++;
-        if (j3 != j1) {
-          break;
-        }
-      }
+      j3 = std::abs(j1 - 1);
       j4 = j3;
       i3 = i1;
       i4 = i2;
