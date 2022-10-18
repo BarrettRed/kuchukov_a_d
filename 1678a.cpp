@@ -2,34 +2,41 @@
 
 #include <vector>
 
+#include <algorithm>
+
 int main() {
-  int n;
-  std::cin >> n;
-  std::vector < int > a;
-  int k = 0;
-  int t = 0;
+  int t;
   std::cin >> t;
-  for (int j = 0; j < t; j++) {
+  int n;
+  bool flag;
+  std::vector < int > a;
+  for (int i = 0; i < t; i++) {
+    std::cin >> n;
+    flag = false;
     a.clear();
-    k = 0;
-    for (int i = 0; i < n; i++) {
-      int x;
-      std::cin >> x;
-      a.push_back(x);
+    int A;
+    for (int j = 0; j < n; j++) {
+      std::cin >> A;
+      a.push_back(A);
     }
-    int i = 0;
-    while (a[n - 1] != 0) {
-      if ((a[i] == a[i + 1]) && (a[i] != 0)) {
-        a[i] = 0;
-        i--;
-      } else if (a[i] != 0) {
-        a[i] = std::min(a[i], a[i + 1]);
-        a[i + 1] = a[i];
-        i--;
+    sort(a.begin(), a.end());
+    int k = count(a.begin(), a.end(), 0);
+    if ((a[0] == 0) && (k > 0)) {
+      std::cout << n - k << std::endl;
+      continue;
+    } else {
+      for (int j = 0; j < n - 1; j++) {
+        if (a[j] == a[j + 1]) {
+          flag = true;
+          break;
+        }
       }
-      i++;
-      k++;
+      if (flag) {
+        std::cout << n << std::endl;
+      } else {
+        std::cout << n + 1 << std::endl;
+      }
     }
-    std::cout << k << std::endl;
   }
+
 }
