@@ -13,8 +13,8 @@ int main() {
     std::cout<<std::setprecision(7)<<std::fixed<<std::endl;
     for (x = a; x <= b; x += dx) {
         s = 0;
-        t = 0;
-        for (int i = 0; std::abs(t)<eps; i++) {
+        t = 1;
+        for (int i = 0; std::abs(t)>eps; i++) {
             int z = 2*i + 1;
             t = pow(-1, i)*pow(x, z)/(2*i+1);
             s += t;
