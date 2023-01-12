@@ -17,12 +17,10 @@ int main() {
       std::cin >> x;
       a.push_back(x);
     }
-    for (int i = 0; i < n; i++) {
-      if (i == 0) {
-        if (a[i] == 1) {
-          k++;
-        }
-      } else {
+    if (a[0]==1) {
+      k++;
+    }
+    for (int i = 1; i < n; i++) {
         if (a[i] == 1) {
           if (a[i - 1] == 1) {
             k += 5;
@@ -35,7 +33,6 @@ int main() {
             break;
           }
         }
-      }
     }
     std::cout << k << std::endl;
   }
